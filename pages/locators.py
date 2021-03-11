@@ -11,3 +11,8 @@ class LoginPageLocators():
     LOGIN_REG = (By.CSS_SELECTOR, "#id_registration-email")
     PASS_REG = (By.CSS_SELECTOR, "#id_registration-password1")
     PASS_REG_CHECK = (By.CSS_SELECTOR, "#id_registration-password2")
+
+class ProductPageLocators():
+    ADD_TO_CART = (By.CSS_SELECTOR, ".btn-add-to-basket")
+    ADD_MESSAGE = (By.CSS_SELECTOR, "#messages div:nth-child(1) div strong")
+    SUM_MESSAGE = (By.CSS_SELECTOR, "#messages div.alert.alert-safe.alert-noicon.alert-info.fade.in div p:nth-child(1) strong")
