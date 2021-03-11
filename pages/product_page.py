@@ -26,9 +26,9 @@ class ProductPage(BasePage):
     def check_add_message(self):
         message = self.browser.find_element(*ProductPageLocators.ADD_MESSAGE).text
         name =  self.browser.find_element(*ProductPageLocators.NAME).text
-        assert name in message, "Wrong add message"
+        assert name == message, "Wrong add message"
 
     def check_sum_message(self):
         sum_message = self.browser.find_element(*ProductPageLocators.SUM_MESSAGE).text
         price =  self.browser.find_element(*ProductPageLocators.PRICE).text
-        assert price in sum_message, "Wrong sum message"
+        assert price == sum_message, "Wrong sum message"
