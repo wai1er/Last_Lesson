@@ -15,13 +15,14 @@ class ProductPageLocators():
     ADD_TO_CART = (By.CSS_SELECTOR, ".btn-add-to-basket")
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages div:nth-child(1) div strong")
     SUM_MESSAGE = (By.CSS_SELECTOR, "#messages div.alert.alert-safe.alert-noicon.alert-info.fade.in div p:nth-child(1) strong")
+    ALERT = (By.CSS_SELECTOR, "div.alertinner")
     NAME = (By.CSS_SELECTOR, ".product_main h1")
     PRICE = (By.CSS_SELECTOR, "p.price_color")
 
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
-    BASKET_LINK = (By.XPATH, "div.basket-mini.pull-right.hidden-xs span a")
+    BASKET_LINK = (By.XPATH, "//a[contains(text(), 'View basket')]")
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 class BasketPageLocators():

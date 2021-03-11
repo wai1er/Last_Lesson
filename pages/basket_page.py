@@ -9,6 +9,6 @@ class BasketPage(BasePage):
     
     
     def text_basket_is_empty_should_be_present(self):
-        expected_alert='Ваша корзина пуста'
+        expected_alert='Your basket is empty'
         alert = self.browser.find_element(*BasketPageLocators.ALERT).text
         assert expected_alert in alert, "Text 'Basket is empty' should be present"

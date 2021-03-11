@@ -4,6 +4,22 @@ from selenium.common.exceptions import NoAlertPresentException
 import math
 
 class ProductPage(BasePage): 
+    def get_product_name(self):
+        return self.browser.find_element(*ProductPageLocators.NAME).text
+
+    def get_price(self):
+        return self.browser.find_element(*ProductPageLocators.PRICE).text
+
+    def check_alert_product_added(self,product_name):
+        expected_alert=product_name+' has been added to your basket.'
+        alert = self.browser.find_elements(*ProductPageLocators.ALERT)[0].text
+        assert expected_alert in alert, f"Should be '{expected_alert}' in alert:'{alert}'"
+
+    def check_alert_sum_in_basket(self,price):
+        expected_alert='Your basket total is now '+price
+        alert = self.browser.find_elements(*ProductPageLocators.ALERT)[2].text
+        assert expected_alert in alert, f"Should be '{expected_alert}' in alert:'{alert}'"
+
     def add_to_basket(self):
         button = self.browser.find_element(*ProductPageLocators.ADD_TO_CART)
         button.click()
@@ -21,16 +37,6 @@ class ProductPage(BasePage):
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
-
-    def check_add_message(self):
-        message = self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE).text
-        name =  self.browser.find_element(*ProductPageLocators.NAME).text
-        assert name == message, "Wrong add message"
-
-    def check_sum_message(self):
-        sum_message = self.browser.find_element(*ProductPageLocators.SUM_MESSAGE).text
-        price =  self.browser.find_element(*ProductPageLocators.PRICE).text
-        assert price == sum_message, "Wrong sum message"
 
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
