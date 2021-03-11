@@ -1,6 +1,7 @@
 from Last_Lesson.pages.main_page import MainPage
 from Last_Lesson.pages.login_page import LoginPage
 from Last_Lesson.pages.basket_page import BasketPage
+import pytest
 
 def  test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     link = "http://selenium1py.pythonanywhere.com/"
@@ -11,6 +12,7 @@ def  test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     basket_page.basket_should_be_empty()
     basket_page.text_basket_is_empty_should_be_present()
 
+@pytest.mark.login_guest
 class TestLoginFromMainPage():
     def test_guest_can_go_to_login_page(self, browser):
         link = "http://selenium1py.pythonanywhere.com"

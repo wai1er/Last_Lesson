@@ -6,11 +6,10 @@ class MainPageLocators():
 class LoginPageLocators():
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
     REG_FORM = (By.CSS_SELECTOR, "#register_form")
-    LOGIN = (By.CSS_SELECTOR, "#id_login-username")
-    PASS = (By.CSS_SELECTOR, "#id_login-password")
-    LOGIN_REG = (By.CSS_SELECTOR, "#id_registration-email")
-    PASS_REG = (By.CSS_SELECTOR, "#id_registration-password1")
-    PASS_REG_CHECK = (By.CSS_SELECTOR, "#id_registration-password2")
+    EMAIL = (By.ID, "id_registration-email")
+    PASSWORD1 = (By.ID, "id_registration-password1")
+    PASSWORD2 = (By.ID, "id_registration-password2")
+    BUTTON_SUBMIT = (By.NAME, "registration_submit")
 
 class ProductPageLocators():
     ADD_TO_CART = (By.CSS_SELECTOR, ".btn-add-to-basket")
@@ -22,7 +21,7 @@ class ProductPageLocators():
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
-    BASKET_LINK = (By.XPATH, "//a[contains(text(), 'Посмотреть корзину')]")
+    BASKET_LINK = (By.XPATH, "div.basket-mini.pull-right.hidden-xs span a")
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 class BasketPageLocators():
