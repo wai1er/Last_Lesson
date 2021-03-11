@@ -1,8 +1,10 @@
 from Last_Lesson.pages.base_page import BasePage
 from Last_Lesson.pages.locators import ProductPageLocators
 from selenium.common.exceptions import NoAlertPresentException
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 import math
-import time
 
 class ProductPage(BasePage): 
     def add_to_basket(self):
@@ -24,7 +26,7 @@ class ProductPage(BasePage):
             print("No second alert presented")
 
     def check_add_message(self):
-        message = self.browser.find_element(*ProductPageLocators.ADD_MESSAGE).text
+        message = self.browser.find_element(*ProductPageLocators.SUCCESS_MESSAGE).text
         name =  self.browser.find_element(*ProductPageLocators.NAME).text
         assert name == message, "Wrong add message"
 
@@ -32,3 +34,11 @@ class ProductPage(BasePage):
         sum_message = self.browser.find_element(*ProductPageLocators.SUM_MESSAGE).text
         price =  self.browser.find_element(*ProductPageLocators.PRICE).text
         assert price == sum_message, "Wrong sum message"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+           "Success message should not disappear"
+
+    def should_disappear_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+           "Success message should disappear"
