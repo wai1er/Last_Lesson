@@ -5,6 +5,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from Last_Lesson.pages.locators import BasePageLocators
 
 class BasePage():
+    def go_to_basket(self):
+        login_link = self.browser.find_element(*BasePageLocators.BASKET_LINK)
+        login_link.click()
 
     def go_to_login_page(self):
         link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)

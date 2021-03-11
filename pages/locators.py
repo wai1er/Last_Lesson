@@ -22,5 +22,9 @@ class ProductPageLocators():
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
-    BASKET_LINK = (By.XPATH, "//a[contains(text(), 'View basket')]")
+    BASKET_LINK = (By.XPATH, "//a[contains(text(), 'Посмотреть корзину')]")
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
+
+class BasketPageLocators():
+    BASKET_ITEM = (By.CSS_SELECTOR, ".basket-items .row")
+    ALERT = (By.CSS_SELECTOR, "div#content_inner p")
